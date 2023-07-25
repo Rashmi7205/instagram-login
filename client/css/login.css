@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    width: 400px;
+    height: 500px;
+    margin: 100px auto;
+}
+#login-form{
+    width: 100%;
+    height: 100%;
+    box-shadow: 5px 5px 20px #000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#login-form>.input-box{
+    width:100%;
+}
+.input-field{
+    width: 70%;
+    text-transform: capitalize;
+}
+input{
+    width: 100%;
+    background-color: #c6cccf;
+    border: none;
+    border-radius:6px;
+    height: 30px;
+}
+#login-form>button{
+    width: 70%;
+}
+button{
+    background-color: #138fdc;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #fff;
+}

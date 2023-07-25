@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup | Create Your Account</title>
+    <link rel="stylesheet" href="./css/register.css"/>
+  </head>
+  <body>
+    <div class="main">
+      <form>
+        <h1>Instagram SignUp</h1>
+        <div class="input-box">
+          <h3>Name</h3>
+          <input type="text" id="name" placeholder="Enter name"/>
+        </div>
+        <div class="input-box">
+          <h3>username</h3>
+          <input type="text" id="username" placeholder="username"/>
+        </div>
+        <div class="input-box">
+          <h3>email</h3>
+          <input type="email"  id="email" placeholder="email"/>
+        </div>
+        <div class="input-box">
+          <h3>password</h3>
+          <input type="password" id="password" placeholder="password"/>
+        </div>
+        <div class="input-box">
+          <h3>bio</h3>
+          <textarea name="bio"  placeholder="Enter Your Bio"></textarea>
+        </div>
+        <input type="submit" value="sign Up" id="submit">
+        <p><a href="">forgot password?</a><a href="./login.html">Log in</a></p>
+      </form>
+    </div>
+    <script>
+        document.getElementById('submit').addEventListener('click',function(event){
+            event.preventDefault();
+            const name=document.getElementById('name').value;
+            const password=document.getElementById('password').value;
+            const email=document.getElementById('email').value;
+            const username=document.getElementById('username').value; 
+            
+            const userData={
+                name,
+                email,
+                password,
+                username
+            }
+
+            registerUser(userData);
+        })
+        const registerUser = async(userData)=>{
+            try {
+        const resp = await fetch("http://localhost:5005/user/signup",{
+            method:"POST",
+            headers:{"content-type":"application/json"},
+            body:JSON.stringify(userData)
+        })
+
+        const data = await resp.json();
+        console.log(data)
+        window.location.href="http://localhost:5500/client/login.html"
+        
+       } catch (error) {
+            console.log(error.message)
+       }
+        }
+    </script>
+  </body>
+</html>
